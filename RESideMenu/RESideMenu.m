@@ -161,7 +161,7 @@
         [self addChildViewController:contentViewController];
         contentViewController.view.alpha = 0;
         contentViewController.view.frame = self.contentViewContainer.bounds;
-        [self.contentViewContainer addSubview:contentViewController.view];
+        [self.contentViewContainer insertSubview:contentViewController.view belowSubview:self.contentButton];
         [UIView animateWithDuration:self.animationDuration animations:^{
             contentViewController.view.alpha = 1;
         } completion:^(BOOL finished) {
@@ -726,7 +726,7 @@
     
     [self addChildViewController:self.contentViewController];
     self.contentViewController.view.frame = self.view.bounds;
-    [self.contentViewContainer addSubview:self.contentViewController.view];
+    [self.contentViewContainer insertSubview:self.contentViewController.view belowSubview:self.contentButton];
     [self.contentViewController didMoveToParentViewController:self];
     
     [self updateContentViewShadow];
